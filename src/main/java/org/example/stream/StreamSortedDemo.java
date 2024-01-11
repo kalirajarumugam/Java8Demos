@@ -23,6 +23,7 @@ public class StreamSortedDemo {
 
         arrayList.stream().sorted((str1, str2) -> Character.compare(str1.charAt(str1.length()-1), str2.charAt(str2.length()-1))).forEach(System.out::println);
 
+        System.out.println("Test");
 
     }
 }
