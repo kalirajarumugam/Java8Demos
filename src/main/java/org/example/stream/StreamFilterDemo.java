@@ -1,6 +1,7 @@
 package org.example.stream;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -8,7 +9,7 @@ import java.util.stream.Stream;
 public class StreamFilterDemo {
 
     public static void main(String[] args){
-        List<Integer> list = List.of(1,2,3,4,5,6,7);
+        List<Integer> list = Arrays.asList(1,2,3,4,5,6,7);
         List<Integer> even = list.stream().reduce(new ArrayList<Integer>(),
                 (a, b) -> {
                     if (b % 2 == 0)
@@ -21,7 +22,7 @@ public class StreamFilterDemo {
         List<Integer> filter = list.stream().filter(a -> a % 2 == 1).collect(Collectors.toList());
         System.out.println("Filtered : " + filter);
 
-        List<Integer> list2 = List.of(1,2,3,4,5,6,7, 12, 20);
+        List<Integer> list2 = Arrays.asList(1,2,3,4,5,6,7, 12, 20);
         list2.stream().filter(num -> num % 5 == 0).forEach(System.out::print);
 
         System.out.println("\nStream Of Strings with Starting Upper Case : ");

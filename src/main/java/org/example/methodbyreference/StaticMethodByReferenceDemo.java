@@ -17,8 +17,16 @@ public class StaticMethodByReferenceDemo {
         // Display message only
         System.out.println("Before Sorting Original List :");
         personList.stream().map(x->x.getName()).forEach(System.out::println);
-
+        System.out.println("-------------------");
         Collections.sort(personList, StaticMethodByReferenceDemo::compareByName);
+        personList.stream().map(x->x.getName()).forEach(System.out::println);
+        System.out.println("-------------------");
+
+        System.out.println("*******************");
+        Collections.sort(personList, (a, b) -> b.getName().compareTo(a.getName()));
+        personList.stream().map(x->x.getName()).forEach(System.out::println);
+        System.out.println("*******************");
+
 
         // Display message only
         System.out.println("Sort by name :");

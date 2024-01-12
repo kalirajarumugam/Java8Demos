@@ -1,5 +1,6 @@
 package org.example.stream;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,8 +22,21 @@ public class StreamDemo {
 
         System.out.println("Filtered List : " + result);
 
-        int total = number.stream().map(x->x*x).reduce(0, (ans, i) -> ans+i);
-        int stotal = square.stream().reduce(0, (ans, i) -> ans+i);
+        int total = number.stream().reduce(10, (ans, i) -> ans+i);
+        int stotal = square.stream().reduce(10, (ans, i) -> ans+i);
+
+        List<Integer> newList = number.stream().reduce(new ArrayList<Integer>(), (a,b) -> { if (b % 2 == 0) a.add(b); return a; }, (a, b)->{a.addAll(b); return a;} );
+
+ /*       List<Integer> even = number.stream().reduce(new ArrayList<Integer>(),
+                (a, b) -> {
+                    if (b % 2 == 0)
+                        a.add(b);
+                    return a;
+                }, (a,b) -> { a.addAll(b); return a;}
+        );*/
+
+        System.out.println("New List : " + newList);
+
 
         System.out.println("total : " + total + "  " + stotal);
 
